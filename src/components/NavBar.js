@@ -57,42 +57,23 @@ const NavbarComponent = () => {
                   className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Home
+                  Inicio
                 </Link>
                 <Link
                   to="/category/keyboard"
                   className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Keyboards
+                  Pantalon
                 </Link>
                 <Link
                   to="/category/mouse"
                   className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Home
+                  Remera
                 </Link>
-                <a
-                  href="/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Servicios
-                </a>
 
-                <a
-                  href="/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Quienes somos
-                </a>
-
-                <a
-                  href="/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Contacto
-                </a>
               </div>
             </div>
           </div>
@@ -107,28 +88,21 @@ const NavbarComponent = () => {
             className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
             aria-current="page"
           >
-            Home
+            Inicio
           </a>
 
           <a
             href="/"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Servicios
+            Pantalon
           </a>
 
           <a
             href="/"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Quienes somos
-          </a>
-
-          <a
-            href="/"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Contacto
+            Remera
           </a>
         </div>
       </div>
