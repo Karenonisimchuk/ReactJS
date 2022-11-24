@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
   }, []);
 
   if (!item) {
-    return <p>Loading...</p>;
+    return <p>...</p>;
   }
 
   return <ItemDetail item={item} />;

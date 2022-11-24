@@ -29,7 +29,7 @@ const ItemListContainer = () => {
   }, [category]);
 
   if (products.length === 0) {
-    return <p>Loading...</p>;
+    return <p>Cargando...</p>;
   }
 
   return (
