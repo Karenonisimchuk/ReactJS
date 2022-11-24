@@ -13,7 +13,7 @@ const NavbarComponent = () => {
               aria-controls="mobile-menu"
               aria-expanded="false"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">Menu</span>
               <svg
                 className="block h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const NavbarComponent = () => {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <h1 className="text-white font-bold text-2xl">Gamers</h1>
+              <h1 className="text-white font-bold text-2xl">Armonica</h1>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
