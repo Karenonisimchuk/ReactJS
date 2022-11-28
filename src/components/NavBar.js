@@ -60,18 +60,18 @@ const NavbarComponent = () => {
                   Inicio
                 </Link>
                 <Link
-                  to="/category/keyboard"
+                  to="/category/ServicioDiseño"
                   className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Pantalon
+                  Servicio diseño
                 </Link>
                 <Link
-                  to="/category/mouse"
+                  to="/category/Campañas"
                   className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Remera
+                  Campañas
                 </Link>
 
               </div>
@@ -95,14 +95,14 @@ const NavbarComponent = () => {
             href="/"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Pantalon
+            Servicio diseño
           </a>
 
           <a
             href="/"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Remera
+            Campañas
           </a>
         </div>
       </div>
