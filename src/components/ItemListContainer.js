@@ -1,40 +1,33 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
-// Own components
+import { useState } from "react";
 import ItemList from "./ItemList";
+import Loader from "./Loader";
+import PRODUCTOS from "./products";
 
-// Mock
-import { item } from "../mocks/item.mock";
-
-const ItemListContainer = () => {
-  const { category } = useParams();
+const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
+  const [hasProduct, setHasProduct] = useState(false);
 
-  useEffect(() => {
-    new Promise((resolve) =>
-      setTimeout(() => {
-        resolve(item);
-      }, 2000)
-    ).then((data) => {
-      if (category) {
-        const categories = data.filter(
-          (product) => product.category === category
-        );
-        setProducts(categories);
-      } else {
-        setProducts(data);
-      }
-    });
-  }, [category]);
+  const listproduct = new Promise((resolve) =>
+    setTimeout(() => {
+      resolve(PRODUCTOS);
+    }, 1500)
+  );
 
-  if (products.length === 0) {
-    return <p>Cargando...</p>;
-  }
+  listproduct
+    .then((data) => setProducts(data))
+    .then((data) => setHasProduct(!data));
+
+  console.log(products);
 
   return (
-    <div className="h-full">
-      <ItemList products={products} />
+    <div className="itemListContainer">
+      <div>{greeting}</div>
+      {!hasProduct ? (
+        <Loader/>
+      ) : (
+        <ItemList products={products}/>
+      )}
+
     </div>
   );
 };

@@ -1,12 +1,18 @@
-import './App.css';
-import { Layout } from './components/Layout';
-import ItemListContainer from './components/ItemListContainer';
+import "./sass/styles.scss";
+import NavBar from "./components/NavBar.js";
+import ItemListContainer from "./components/ItemListContainer";
+import CardProduct from "./components/CardProduct";
 
 function App() {
   return (
-    <Layout>
-      <ItemListContainer />
-    </Layout>
+    <div className="App">
+      <header>
+        <NavBar />
+      </header>
+      <ItemListContainer
+        greeting={"Hola Coder..!! Bienvenidos a mi Poryecto React.js"}
+      />
+    </div>
   );
 }
 

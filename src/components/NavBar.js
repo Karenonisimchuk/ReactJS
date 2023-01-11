@@ -1,113 +1,121 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import CartWidget from "./CartWidget";
+import ItemNav from "./ItemNav";
 
-const NavbarComponent = () => {
+const NavBar = () => {
+  const [open, setOpen] = useState("");
+  const [carrito, setCarrito] = useState("");
+
+  const openClose = () => {
+    open === "is-active" ? setOpen("") : setOpen("is-active");
+  };
+  const openCarrito = () => {
+    carrito === "modal_show" ? setCarrito("") : setCarrito("modal_show");
+  };
+
   return (
-    <nav className="bg-gray-800">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
+    <div>
+      <nav className="nav">
+        <div className="navContainer">
+          <div className="logo">
+            <p>Feria Wineem</p>
+          </div>
+          <div className="menu">
+            <ItemNav
+              link={"#home"}
+              dataUrl={"home"}
+              item={"Inicio"}
+              active="active"
+            />
+            <ItemNav
+              link={"#productos"}
+              dataUrl={"productos"}
+              item={"Productos"}
+            />
+            <ItemNav
+              link={"#Contacto"}
+              dataUrl={"Contacto"}
+              item={"Contacto"}
+            />
+            <a href="#carrito" id="carrito" className="menu-carrito">
+              <CartWidget className="shop-nav" />
+              <div id="cant-carrito-total" className="cant-carrito-total"></div>
+            </a>
+          </div>
+          <div className="burger">
+            <a
+              href="#carrito"
+              id="carrito_xs"
+              onClick={() => {
+                openCarrito();
+              }}
             >
-              <span className="sr-only">Menu</span>
-              <svg
-                className="block h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-              <svg
-                className="hidden h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <CartWidget />
+              <div
+                id="cant-carrito-total-xs"
+                className="cant-carrito-total-xs"
+              ></div>
+            </a>
+            <button
+              className={`hamburger ${open}`}
+              id="hamburger"
+              onClick={() => {
+                openClose();
+              }}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              </button>
+          </div>
+        </div>
+      </nav>
+      <nav className="nav-mobile">
+        <div
+          className={`nav-mobile-container ${open}`}
+          id="nav-mobile-container"
+        >
+          <a className="nav-mobile-item" href="#home">
+            <p>Inicio</p>
+          </a>
+          <a className="nav-mobile-item" href="#productos">
+            <p>Feria</p>
+          </a>
+          <a className="nav-mobile-item" href="#contacto">
+            <p>Contacto</p>
+          </a>
+        </div>
+      </nav>
+      <div className={`modal-carrito ${carrito}`} id="modal-carrito">
+        <div className="modal-container">
+          <h3 className="modal-title">Carrito</h3>
+          <ion-icon
+            class="close-carrito"
+            id="close-carrito"
+            name="close-outline"
+            onClick={() => {
+              openCarrito();
+            }}
+          ></ion-icon>
+          <div id="conten-carrito"></div>
+          <div className="total-carrito">
+            <p className="total-text">Total</p>
+            <p id="total_carrito">$</p>
+          </div>
+          <div className="buttons-carrito">
+            <button className="vaciar" id="vaciar-carrito">
+              <ion-icon name="close-circle-outline"></ion-icon>
+              <p className="button-text">Vaciar</p>
+            </button>
+            <button className="comprar" id="comprar">
+              <ion-icon name="card-outline"></ion-icon>
+              <p className="button-text">Comprar</p>
             </button>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <h1 className="text-white font-bold text-2xl">Armonica</h1>
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                <Link
-                  to="/"
-                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  aria-current="page"
-                >
-                  Inicio
-                </Link>
-                <Link
-                  to="/category/ServicioDiseño"
-                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  aria-current="page"
-                >
-                  Servicio diseño
-                </Link>
-                <Link
-                  to="/category/Campañas"
-                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  aria-current="page"
-                >
-                  Campañas
-                </Link>
-
-              </div>
-            </div>
-          </div>
-          <CartWidget />
         </div>
       </div>
-
-      <div className="sm:hidden" id="mobile-menu">
-        <div className="space-y-1 px-2 pt-2 pb-3">
-          <a
-            href="/"
-            className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-            aria-current="page"
-          >
-            Inicio
-          </a>
-
-          <a
-            href="/"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Servicio diseño
-          </a>
-
-          <a
-            href="/"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Campañas
-          </a>
-        </div>
-      </div>
-    </nav>
+    </div>
   );
 };
 
-export default NavbarComponent;
+export default NavBar;
